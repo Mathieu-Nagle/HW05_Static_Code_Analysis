@@ -35,6 +35,15 @@ class TestTriangles(unittest.TestCase):
     def testNotatriangleTrangles(self):
         self.assertEqual(classifyTriangle(1,2,3), 'NotATriangle', '1,2,3, is not a triangle')
 
+    def testTooLong(self):
+        self.assertEqual(classifyTriangle(1,2,300), 'InvalidInput', 'All sides of the triangle can be at most 200')
+
+    def testTooShort(self):
+        self.assertEqual(classifyTriangle(1,2,0), 'InvalidInput', 'All sides of the triangle must be greater than 0')
+
+    def testInt(self):
+        self.assertEqual(classifyTriangle(1.1,2.2,3.3), 'InvalidInput', 'All inputs must be ints')
+
 if __name__ == '__main__':
     print('Running unit tests')
     unittest.main()
